@@ -7,21 +7,19 @@ const loader = document.getElementById('loader'); // Loader
 
 let apiQuotes = []; // I'm using let here instead of a const because I will be reassigning the variable later
 
-// Show loading
-function loading() {
-    loader.hidden = false; // Show loader
-    quoteContainer.hidden = true; // Hide quote container
+function showLoadingSpinner() {
+    loader.hidden = false; 
+    quoteContainer.hidden = true; 
 }
 
-// Hide loading
-function complete() {
-    quoteContainer.hidden = false; // Show quote container
-    loader.hidden = true; // Hide loader
+function removeLoadingSpinner() {
+    quoteContainer.hidden = false; 
+    loader.hidden = true; 
 }
 
-// Show new quote
+
 function newQuote() {
-    loading(); // Show loader
+    showLoadingSpinner(); 
     //  Pick a random quote from apiQuotes array
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
    if (!quote.author) {
@@ -35,15 +33,13 @@ function newQuote() {
    } else {
     quoteText.classList.remove('long-quote');
    }
-   //Set Quote, Hide Loader
-    quoteText.textContent = quote.text; // Set quote text
-    complete(); // Hide loader
+    quoteText.textContent = quote.text; 
+    removeLoadingSpinner(); 
 }
 
 //  Get quotes from the API
-
 async function getQuotes() {
-    loading(); // Show loader
+    showLoadingSpinner(); // Show loader
     const apiUrl = 'https://jacintodesign.github.io/quotes-api/data/quotes.json';
    try {
         const response = await fetch(apiUrl);
