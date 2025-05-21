@@ -6,7 +6,7 @@ let isLoading = false; // Prevent multiple simultaneous requests
 let page = 1; // Track pagination for Unsplash API
 
 // Unsplash API
-const count = 10;
+const count = 30;
 const apiKey = 'GUOAFbQive3Q1BcHwt28Bq23goUfVNrHszEvMHFMd6w';
 const apiUrl = `https://api.unsplash.com/photos/random?client_id=${apiKey}&count=${count}`;
 
